@@ -1,0 +1,115 @@
+% example_ws.tex - Worksheet class example
+\documentclass[answers]{worksheet}
+
+\coursename{Linear Algebra}
+\coursecode{Math 221}
+\institution{Your University}
+\professor{Dr. Smith}
+\semester{Fall 2026}
+\wsnumber{2}
+
+\begin{document}
+
+\makeworksheettitle
+
+\begin{question}
+    Start from the four equations $-x_{i+1}+2x_i-x_{i-1}=i$ (for $i=1,2,3,4$ with $x_0=x_5=0$). Write those equations in their matrix form $A\boldsymbol{x}=\boldsymbol{b}$. Can you solve them for $x_1,x_2,x_3,x_4$?
+    
+    \blankspace{15em}
+\end{question}
+
+\begin{answer}
+    \begin{equation}
+        \begin{bmatrix}
+            2 & -1 & 0 & 0 \\
+            -1 & 2 & -1 & 0 \\
+            0 & -1 & 2 & -1 \\
+            0 & 0 & -1 & 2 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1 \\ x_2 \\ x_3 \\ x_4
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \\ 2 \\ 3 \\ 4
+        \end{bmatrix}
+    \end{equation}
+    It has the solution
+    \begin{equation}
+        \begin{bmatrix}
+            x_1 \\ x_2 \\ x_3 \\ x_4
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            4 \\ 7 \\ 8 \\ 6
+        \end{bmatrix}
+    \end{equation}
+\end{answer}
+
+\begin{question}
+    What multiple $l$ of equation 1 should be subtracted from equation 2 to remove $c$?
+    \begin{equation}
+        \begin{cases}
+            ax+by=f \\ cx+dy=g
+        \end{cases}
+    \end{equation}
+    The first pivot is $a$ (assumed nonzero). Elimination produces what formula for the second pivot? What is $y$? The second pivot is 
+    missing when $ad=bc$: singular.
+    
+    \blankspace{15em}
+\end{question}
+
+\begin{answer}
+    Subtract $l=\frac{c}{a}$ times equation 1 from equation 2. The new second pivot multiplying $y$ is $d-\frac{bc}{a}$ or $\frac{ad-bc}{a}$. Then $y=\frac{ag-cf}{ad-bc}$. 
+    Notice the "determinant of A" is $ad-bc$. It must be nonzero for this division.
+\end{answer}
+
+\begin{question}
+    Write down the 3 by 3 matrics that produce these elimination steps:
+    \begin{parts}
+        \item $E_{21}$ subtracts 5 times row 1 from row 2.
+        \item $E_{32}$ subtracts -7 times row 2 from row 3.
+        \item $P$ exchanges rows 1 and 2, then rows 2 and 3
+    \end{parts}
+\end{question}
+
+\begin{answer}
+    \begin{equation}
+        E_{21}=\begin{bmatrix}
+            1 & 0 & 0 \\
+            -5 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}
+        ,\; E_{32}=\begin{bmatrix}
+            1 & 0 & 0 \\ 
+            0 & 1 & 0 \\
+            0 & 7 & 1
+        \end{bmatrix}
+        ,\; P=\begin{bmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+            1 & 0 & 0
+        \end{bmatrix}
+    \end{equation}
+\end{answer}
+
+\begin{question}
+Multiplication by $A$ is a "linear transformation". Those words mean: 
+If $\boldsymbol{w}$ is a combination of $\boldsymbol{u}$ and $\boldsymbol{v}$, then $A\boldsymbol{w}$ is the same combination of $A\boldsymbol{u}$ and $A\boldsymbol{v}$. 
+It is this "linearity" $A\boldsymbol{w}=cA\boldsymbol{u}+dA\boldsymbol{v}$ that gives us the name "linear algebra".
+
+If $\boldsymbol{u}=\begin{bmatrix}1\\0 \end{bmatrix}$ and $\boldsymbol{v}=\begin{bmatrix} 0\\1 \end{bmatrix}$ then $A\boldsymbol{u}$ and $A\boldsymbol{v}$ are 
+the columns of $A$. Combine $\boldsymbol{w}=c\boldsymbol{u}+d\boldsymbol{v}$. 
+
+If $\boldsymbol{w}=\begin{bmatrix} 5\\7 \end{bmatrix}$ how is $A\boldsymbol{w}$ connected to 
+$A\boldsymbol{u}$ and $A\boldsymbol{v}$?
+
+\blankspace{15em}
+\end{question}
+
+\begin{answer}
+    $\boldsymbol{w}=(5,7)$ is $5\boldsymbol{u} + 7 \boldsymbol{v}$. Then $A\boldsymbol{w}$ equals 5 times $A\boldsymbol{u}$ plus 7 times $A\boldsymbol{v}$. 
+    \textbf{Linearity} means: When $\boldsymbol{w}$ is a conbination of $\boldsymbol{u}$ and $\boldsymbol{v}$, then $A\boldsymbol{w}$ is the same combination of $A\boldsymbol{u}$ and $A\boldsymbol{v}$.
+\end{answer}
+
+\end{document}
